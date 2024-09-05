@@ -159,6 +159,24 @@
     // We do not allow closing the primary WebView
 }
 
+- (void)webView:(WKWebView *)webView
+    requestMediaCapturePermissionForOrigin:(WKSecurityOrigin *)origin
+    initiatedByFrame:(WKFrameInfo *)frame
+    type:(WKMediaCaptureType)type
+    decisionHandler:(void (^)(WKPermissionDecision decision))decisionHandler
+    API_AVAILABLE(ios(15.0))
+{
+    NSString* permissionDecision = self.mediaCapturePermissionDecision;
+
+    if ([@"grant" caseInsensitiveCompare:permissionDecision] == NSOrderedSame) {
+        decisionHandler(WKPermissionDecisionGrant);
+    } else if ([@"deny" caseInsensitiveCompare:permissionDecision] == NSOrderedSame) {
+        decisionHandler(WKPermissionDecisionDeny);
+    } else {
+        decisionHandler(WKPermissionDecisionPrompt);
+    }
+}
+
 #pragma mark - Utility Methods
 
 - (nullable UIViewController *)topViewController

@@ -34,6 +34,7 @@ CDV_SWIFT_UI_ACTOR
 
 @property (nonatomic, nullable, copy) NSString* title;
 @property (nonatomic, assign) BOOL allowNewWindows;
+@property (nonatomic, copy) NSString* mediaCapturePermissionDecision;
 
 - (instancetype)initWithViewController:(CDVViewController*)vc;
 
