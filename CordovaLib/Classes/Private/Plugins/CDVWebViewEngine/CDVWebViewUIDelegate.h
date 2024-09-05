@@ -26,6 +26,7 @@
 
 @property (nonatomic, copy) NSString* title;
 @property (nonatomic, assign) BOOL allowNewWindows;
+@property (nonatomic, copy) NSString* mediaCapturePermissionDecision;
 
 - (instancetype)initWithTitle:(NSString*)title;
 

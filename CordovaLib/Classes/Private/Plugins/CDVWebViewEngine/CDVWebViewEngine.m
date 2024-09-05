@@ -195,6 +195,7 @@
 
     CDVWebViewUIDelegate* uiDelegate = [[CDVWebViewUIDelegate alloc] initWithTitle:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]];
     uiDelegate.allowNewWindows = [settings cordovaBoolSettingForKey:@"AllowNewWindows" defaultValue:NO];
+    uiDelegate.mediaCapturePermissionDecision = [settings cordovaSettingForKey:@"MediaCapturePermissionDecision"];
     self.uiDelegate = uiDelegate;
 
     CDVWebViewWeakScriptMessageHandler *weakScriptMessageHandler = [[CDVWebViewWeakScriptMessageHandler alloc] initWithScriptMessageHandler:self];
